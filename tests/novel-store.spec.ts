@@ -140,6 +140,13 @@ describe('novel workspace store', () => {
       expect(chapterData.chapterNo).toBeUndefined()
       expect(chapterData.relatedOutlineId).toBe(segment.id)
       expect(chapterData.relatedOutlineName).toBeUndefined()
+
+      const prefixed = await upsertEntity(dir, 'chapter', {
+        ordinal: 2,
+        name: '第1章 灭门夜',
+      })
+      expect(prefixed.name).toBe('灭门夜')
+      expect(asRecord(prefixed.data).name).toBe('灭门夜')
     } finally {
       await rm(dir, { recursive: true, force: true })
     }

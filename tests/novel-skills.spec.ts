@@ -14,7 +14,7 @@ import {
 } from '../src/novel/host-skills.ts'
 import { listSeedSkillRows } from '../src/novel/seed.ts'
 import { timelineEventTypeLabel, timelineResolvedLabel } from '../src/novel/timeline-labels.ts'
-import { chapterNodeLabel, outlineNodeLabel } from '../src/novel/outline-labels.ts'
+import { chapterNodeLabel, countChapterChars, outlineNodeLabel, stripLeadingChapterHeading, stripVolumeChapterPrefix } from '../src/novel/outline-labels.ts'
 import { listSkills, provisionNovelWorkspace, type SkillRecord } from '../src/novel/store.ts'
 
 describe('novel DSH skills', () => {
@@ -102,5 +102,16 @@ describe('novel DSH skills', () => {
     expect(outlineNodeLabel({ ordinal: 2, name: '灭门夜', kind: 'chapter_segment' }, 'x')).toBe('第2章 灭门夜')
     expect(chapterNodeLabel({ ordinal: 1, name: '灭门夜' }, 'x')).toBe('第1章 灭门夜')
     expect(outlineNodeLabel({ name: '骑士' }, 'x')).toBe('骑士')
+  })
+
+  it('strips 第N卷/章 prefixes from titles and counts chapter chars without whitespace', () => {
+    expect(stripVolumeChapterPrefix('第一章 灭门夜')).toBe('灭门夜')
+    expect(stripVolumeChapterPrefix('第1卷 骑士')).toBe('骑士')
+    expect(outlineNodeLabel({ ordinal: 1, name: '第一卷 骑士', kind: 'volume' }, 'x')).toBe('第1卷 骑士')
+    expect(chapterNodeLabel({ ordinal: 1, name: '第1章 灭门夜' }, 'x')).toBe('第1章 灭门夜')
+    expect(countChapterChars('一 二\n三')).toBe(3)
+    expect(countChapterChars('')).toBe(0)
+    expect(stripLeadingChapterHeading('第1章 灭门夜\n\n正文', '第1章 灭门夜')).toBe('正文')
+    expect(stripLeadingChapterHeading('# 第一章 灭门夜\n开场', '第1章 灭门夜')).toBe('开场')
   })
 })

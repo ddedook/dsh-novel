@@ -24,7 +24,10 @@ textarea.dshNovelControl { min-height: 88px; resize: vertical; }
 .dshNovelEntryTitle { font-size: 14px; font-weight: 500; line-height: 22px; }
 .dshNovelTier { display: flex; flex-direction: column; gap: 8px; padding: 12px; border: 1px solid var(--dsw-alias-border-l2); border-radius: 6px; }
 .dshNovelPills { display: flex; flex-wrap: wrap; gap: 6px; }
-.dshNovelTitle { margin: 0; font-size: 20px; font-weight: 600; line-height: 28px; }
+.dshNovelTitle { margin: 0; font-size: 20px; font-weight: 600; line-height: 28px; min-width: 0; }
+.dshNovelTitleRow { display: flex; align-items: center; justify-content: space-between; gap: 12px; min-width: 0; }
+.dshNovelTitleRow .dshNovelTitle { flex: 1; min-width: 0; overflow: hidden; text-overflow: ellipsis; white-space: nowrap; }
+.dshNovelTitleRow .dshNovelViewFormHeadActions { padding-bottom: 0; }
 .dshNovelMeta { margin: 0; color: var(--dsw-alias-label-secondary); font-size: 13px; line-height: 20px; }
 .dshNovelProse { margin: 0; white-space: pre-wrap; font-size: 14px; line-height: 24px; }
 .dshNovelReadValue { white-space: pre-wrap; font-size: 14px; line-height: 22px; color: var(--dsw-alias-label-primary, inherit); }
@@ -44,6 +47,10 @@ textarea.dshNovelControl { min-height: 88px; resize: vertical; }
 .dshNovelViewFormHead { display: flex; align-items: flex-end; justify-content: space-between; gap: 12px; padding: 4px 16px 0 12px; border-bottom: 1px solid var(--dsw-alias-border-l2); min-width: 0; }
 .dshNovelViewFormHeadTabs { min-width: 0; overflow: hidden; }
 .dshNovelViewFormHeadActions { display: flex; flex: none; align-items: center; gap: 8px; margin-left: auto; padding-bottom: 6px; }
+.dshNovelWordCount { font-size: 12px; line-height: 18px; color: var(--dsw-alias-label-secondary, inherit); white-space: nowrap; }
+.dshNovelIconBtn { appearance: none; display: inline-flex; align-items: center; justify-content: center; width: 28px; height: 28px; padding: 0; border: 0; border-radius: 6px; background: transparent; color: var(--dsw-alias-label-secondary, inherit); cursor: pointer; }
+.dshNovelIconBtn:hover:not(:disabled) { background: var(--dsw-alias-interactive-bg-hover); color: var(--dsw-alias-label-primary, inherit); }
+.dshNovelIconBtn:disabled { opacity: 0.4; cursor: default; }
 .dshNovelViewFormBody { flex: 1; min-height: 0; overflow: auto; padding: 12px; display: flex; flex-direction: column; gap: 12px; }
 .dshNovelViewField { display: flex; flex-direction: column; gap: 4px; }
 .dshNovelViewField label { font-size: 12px; color: var(--dsw-alias-label-secondary, inherit); }

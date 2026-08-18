@@ -23,15 +23,51 @@ export function outlineKindOf(data: Record<string, unknown>): 'volume' | 'chapte
   return parent ? 'chapter_segment' : 'volume'
 }
 
+/** Drop a leading 第N卷/章 or 第N卷 so the UI prefix is not duplicated. */
+export function stripVolumeChapterPrefix(name: string): string {
+  const re = /^第\s*(?:[0-9]+|[零〇一二三四五六七八九十百千两]+)\s*[章节卷]\s*/u
+  let next = name.trim()
+  for (let i = 0; i < 3; i++) {
+    const stripped = next.replace(re, '').trim()
+    if (stripped === next) break
+    next = stripped
+  }
+  return next
+}
+
 export function volumeChapterLabel(ordinal: unknown, unit: '卷' | '章', name: string): string {
-  const title = name.trim().length > 0 ? name.trim() : '未命名'
+  const stripped = stripVolumeChapterPrefix(name)
+  const title = stripped.length > 0 ? stripped : '未命名'
   const n = asOrdinal(ordinal)
   if (n === undefined) return title
   return `第${n}${unit} ${title}`
 }
 
 function shortName(data: Record<string, unknown>, fallback: string): string {
-  return typeof data.name === 'string' && data.name.trim().length > 0 ? data.name.trim() : fallback
+  const raw = typeof data.name === 'string' && data.name.trim().length > 0 ? data.name.trim() : fallback
+  const stripped = stripVolumeChapterPrefix(raw)
+  if (stripped.length > 0) return stripped
+  const fallbackStripped = stripVolumeChapterPrefix(fallback)
+  return fallbackStripped.length > 0 ? fallbackStripped : fallback
+}
+
+/** Character count with whitespace removed, matching chapter review. */
+export function countChapterChars(content: unknown): number {
+  if (typeof content !== 'string') return 0
+  return content.replace(/\s/gu, '').length
+}
+
+/** Drop a first line that repeats the chapter heading (display only). */
+export function stripLeadingChapterHeading(content: string, title: string): string {
+  const lines = content.split('\n')
+  const first = (lines[0] ?? '').trim().replace(/^#+\s*/u, '')
+  if (first.length === 0) return content
+  const a = stripVolumeChapterPrefix(first)
+  const b = stripVolumeChapterPrefix(title)
+  if (first !== title && a !== b) return content
+  let i = 1
+  while (i < lines.length && (lines[i] ?? '').trim() === '') i++
+  return lines.slice(i).join('\n')
 }
 
 export function outlineNodeLabel(data: Record<string, unknown>, fallback: string): string {

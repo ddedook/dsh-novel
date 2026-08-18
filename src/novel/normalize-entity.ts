@@ -1,5 +1,5 @@
 import type { EntityDomain } from './domains.ts'
-import { asOrdinal, outlineKindOf } from './outline-labels.ts'
+import { asOrdinal, outlineKindOf, stripVolumeChapterPrefix } from './outline-labels.ts'
 
 export function asRecord(value: unknown): Record<string, unknown> {
   return value !== null && typeof value === 'object' && !Array.isArray(value)
@@ -64,6 +64,20 @@ function resolveRef(ref: string, map: Map<string, string>, label: string): strin
   return id
 }
 
+function resolveNameRef(ref: string, map: Map<string, string>, label: string): string {
+  const stripped = stripVolumeChapterPrefix(ref)
+  const id = (stripped.length > 0 ? map.get(stripped) : undefined) ?? map.get(ref)
+  if (id === undefined) throw new Error(`${label} not found: ${ref}`)
+  return id
+}
+
+function withStrippedName(data: Record<string, unknown>): Record<string, unknown> {
+  const name = asNonEmptyString(data.name)
+  if (name === undefined) return data
+  const stripped = stripVolumeChapterPrefix(name)
+  return stripped.length > 0 ? { ...data, name: stripped } : data
+}
+
 /** Canonicalize mutate payloads so the content tab can read template keys. */
 export function normalizeEntityPayload(
   domain: EntityDomain,
@@ -88,10 +102,11 @@ export function normalizeEntityPayload(
   }
 
   if (domain === 'outline') {
+    data = withStrippedName(data)
     const parentId = asNonEmptyString(data.parentId)
     const parentName = asNonEmptyString(data.parentName)
     if (parentId === undefined && parentName !== undefined) {
-      data = { ...data, parentId: resolveRef(parentName, lookups.outlineIdByName, 'outline parent') }
+      data = { ...data, parentId: resolveNameRef(parentName, lookups.outlineIdByName, 'outline parent') }
     }
     const ordinal = asOrdinal(data.ordinal) ?? asOrdinal(data.chapterNo)
     data = {
@@ -103,10 +118,15 @@ export function normalizeEntityPayload(
   }
 
   if (domain === 'chapter') {
+    data = withStrippedName(data)
     const relatedId = asNonEmptyString(data.relatedOutlineId)
     const relatedName = asNonEmptyString(data.relatedOutlineName)
     if (relatedId === undefined && relatedName !== undefined) {
-      const id = lookups.outlineChapterIdByName.get(relatedName) ?? lookups.outlineIdByName.get(relatedName)
+      const stripped = stripVolumeChapterPrefix(relatedName)
+      const id = (stripped.length > 0 ? lookups.outlineChapterIdByName.get(stripped) : undefined)
+        ?? lookups.outlineChapterIdByName.get(relatedName)
+        ?? (stripped.length > 0 ? lookups.outlineIdByName.get(stripped) : undefined)
+        ?? lookups.outlineIdByName.get(relatedName)
       if (id === undefined) throw new Error(`outline chapter not found: ${relatedName}`)
       data = { ...data, relatedOutlineId: id }
     }

@@ -1,6 +1,6 @@
 {
   "name": "dsh-novel",
-  "version": "0.1.0",
+  "version": "0.1.1",
   "description": "Standard DSH plugin: novel workspace, PGlite canon, tools, skills, and content tab",
   "license": "MIT",
   "repository": {
@@ -31,7 +31,8 @@
     "lib/**/*.js",
     "lib/**/*.map",
     "lib/types/**/*.d.ts",
-    "README.md"
+    "README.md",
+    "CHANGELOG.md"
   ],
   "engines": {
     "node": "^22.19.0 || >=24.0.0"
