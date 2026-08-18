@@ -1,0 +1,1318 @@
+{
+  "version": 1,
+  "aiGuidance": {
+    "summary": "本模板面向悬疑推理刑侦。适配强化职业机构、立场阵营、调查能力与证物线索；七区齐全。禁止法宝寿元宗门；能力可写调查手段，勿建成修仙战力树。",
+    "sections": {
+      "overview": "类型优先悬疑/推理/刑侦/规则怪谈；特殊要求写血腥尺度与真相揭示节奏。",
+      "role": "公开/真实身份、机构、立场、调查资源与案件定位（主侦/目击者/真凶等）。扩展可加不在场证明。",
+      "world": "案发现场、管辖区、监控盲区、警方/媒体/地下组织。扩展可加辖区冲突。",
+      "timeline": "案发、取证、反转、结案；未解决事件标清。",
+      "outline": "卷主题即案件/谜题；重大事件写证物与反转节点。",
+      "item": "证物凶器文件线索物；关键程度与证明/暗示。扩展可加伪证、链指纹。",
+      "level": "职级代号与情报权限；暴露风险备注。勿用境界寿元。",
+      "creature": "生物含动物/异兽/灵植/灵体等（非人物）。种类用库表 kind 标量；主人可选绑人物。档案写清栖息、习性、能力与危险度。"
+    }
+  },
+  "overview": {
+    "fields": [
+      {
+        "key": "genre",
+        "label": "小说类型",
+        "component": "select",
+        "options": [
+          {
+            "label": "悬疑",
+            "value": "悬疑"
+          },
+          {
+            "label": "推理",
+            "value": "推理"
+          },
+          {
+            "label": "刑侦",
+            "value": "刑侦"
+          },
+          {
+            "label": "规则怪谈",
+            "value": "规则怪谈"
+          },
+          {
+            "label": "克苏鲁",
+            "value": "克苏鲁"
+          },
+          {
+            "label": "惊悚",
+            "value": "惊悚"
+          },
+          {
+            "label": "恐怖",
+            "value": "恐怖"
+          },
+          {
+            "label": "盗墓",
+            "value": "盗墓"
+          },
+          {
+            "label": "无限流",
+            "value": "无限流"
+          },
+          {
+            "label": "男频",
+            "value": "男频"
+          },
+          {
+            "label": "女频",
+            "value": "女频"
+          },
+          {
+            "label": "玄幻",
+            "value": "玄幻"
+          },
+          {
+            "label": "奇幻",
+            "value": "奇幻"
+          },
+          {
+            "label": "东方玄幻",
+            "value": "东方玄幻"
+          },
+          {
+            "label": "西方奇幻",
+            "value": "西方奇幻"
+          },
+          {
+            "label": "仙侠",
+            "value": "仙侠"
+          },
+          {
+            "label": "武侠",
+            "value": "武侠"
+          },
+          {
+            "label": "修真",
+            "value": "修真"
+          },
+          {
+            "label": "洪荒",
+            "value": "洪荒"
+          },
+          {
+            "label": "高武",
+            "value": "高武"
+          },
+          {
+            "label": "都市",
+            "value": "都市"
+          },
+          {
+            "label": "都市异能",
+            "value": "都市异能"
+          },
+          {
+            "label": "都市修仙",
+            "value": "都市修仙"
+          },
+          {
+            "label": "都市重生",
+            "value": "都市重生"
+          },
+          {
+            "label": "都市赘婿",
+            "value": "都市赘婿"
+          },
+          {
+            "label": "都市战神",
+            "value": "都市战神"
+          },
+          {
+            "label": "都市神医",
+            "value": "都市神医"
+          },
+          {
+            "label": "异能",
+            "value": "异能"
+          },
+          {
+            "label": "超能力",
+            "value": "超能力"
+          },
+          {
+            "label": "末世",
+            "value": "末世"
+          },
+          {
+            "label": "废土",
+            "value": "废土"
+          },
+          {
+            "label": "丧尸",
+            "value": "丧尸"
+          },
+          {
+            "label": "科幻",
+            "value": "科幻"
+          },
+          {
+            "label": "星际",
+            "value": "星际"
+          },
+          {
+            "label": "赛博朋克",
+            "value": "赛博朋克"
+          },
+          {
+            "label": "蒸汽朋克",
+            "value": "蒸汽朋克"
+          },
+          {
+            "label": "太空歌剧",
+            "value": "太空歌剧"
+          },
+          {
+            "label": "言情",
+            "value": "言情"
+          },
+          {
+            "label": "现代言情",
+            "value": "现代言情"
+          },
+          {
+            "label": "古代言情",
+            "value": "古代言情"
+          },
+          {
+            "label": "古言",
+            "value": "古言"
+          },
+          {
+            "label": "宫斗",
+            "value": "宫斗"
+          },
+          {
+            "label": "宅斗",
+            "value": "宅斗"
+          },
+          {
+            "label": "豪门",
+            "value": "豪门"
+          },
+          {
+            "label": "甜宠",
+            "value": "甜宠"
+          },
+          {
+            "label": "虐恋",
+            "value": "虐恋"
+          },
+          {
+            "label": "先婚后爱",
+            "value": "先婚后爱"
+          },
+          {
+            "label": "破镜重圆",
+            "value": "破镜重圆"
+          },
+          {
+            "label": "穿越",
+            "value": "穿越"
+          },
+          {
+            "label": "重生",
+            "value": "重生"
+          },
+          {
+            "label": "快穿",
+            "value": "快穿"
+          },
+          {
+            "label": "系统流",
+            "value": "系统流"
+          },
+          {
+            "label": "历史",
+            "value": "历史"
+          },
+          {
+            "label": "历史架空",
+            "value": "历史架空"
+          },
+          {
+            "label": "权谋",
+            "value": "权谋"
+          },
+          {
+            "label": "朝堂",
+            "value": "朝堂"
+          },
+          {
+            "label": "军事",
+            "value": "军事"
+          },
+          {
+            "label": "战争",
+            "value": "战争"
+          },
+          {
+            "label": "游戏",
+            "value": "游戏"
+          },
+          {
+            "label": "网游",
+            "value": "网游"
+          },
+          {
+            "label": "电竞",
+            "value": "电竞"
+          },
+          {
+            "label": "体育",
+            "value": "体育"
+          },
+          {
+            "label": "竞技",
+            "value": "竞技"
+          },
+          {
+            "label": "校园",
+            "value": "校园"
+          },
+          {
+            "label": "青春",
+            "value": "青春"
+          },
+          {
+            "label": "职场",
+            "value": "职场"
+          },
+          {
+            "label": "现实题材",
+            "value": "现实题材"
+          },
+          {
+            "label": "种田",
+            "value": "种田"
+          },
+          {
+            "label": "美食",
+            "value": "美食"
+          },
+          {
+            "label": "直播",
+            "value": "直播"
+          },
+          {
+            "label": "娱乐圈",
+            "value": "娱乐圈"
+          },
+          {
+            "label": "兽世",
+            "value": "兽世"
+          },
+          {
+            "label": "灵气复苏",
+            "value": "灵气复苏"
+          },
+          {
+            "label": "探险",
+            "value": "探险"
+          },
+          {
+            "label": "冒险",
+            "value": "冒险"
+          },
+          {
+            "label": "轻小说",
+            "value": "轻小说"
+          },
+          {
+            "label": "二次元",
+            "value": "二次元"
+          },
+          {
+            "label": "同人",
+            "value": "同人"
+          },
+          {
+            "label": "双男主",
+            "value": "双男主"
+          },
+          {
+            "label": "无 CP",
+            "value": "无 CP"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": true
+      },
+      {
+        "key": "narrativePerspective",
+        "label": "叙事视角",
+        "component": "select",
+        "options": [
+          {
+            "label": "第三人称限制视角（跟随单一主角所见所感）",
+            "value": "第三人称限制视角（跟随单一主角所见所感）"
+          },
+          {
+            "label": "第三人称全知视角（上帝视角，可切换角色）",
+            "value": "第三人称全知视角（上帝视角，可切换角色）"
+          },
+          {
+            "label": "第一人称（主角自述）",
+            "value": "第一人称（主角自述）"
+          },
+          {
+            "label": "多视角切换（每章或每段切换不同角色）",
+            "value": "多视角切换（每章或每段切换不同角色）"
+          },
+          {
+            "label": "书信体 / 日记体",
+            "value": "书信体 / 日记体"
+          },
+          {
+            "label": "旁观者视角",
+            "value": "旁观者视角"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "narrativePerson",
+        "label": "人称",
+        "component": "select",
+        "options": [
+          {
+            "label": "第一人称",
+            "value": "第一人称"
+          },
+          {
+            "label": "第二人称",
+            "value": "第二人称"
+          },
+          {
+            "label": "第三人称",
+            "value": "第三人称"
+          },
+          {
+            "label": "第一人称 + 第三人称混合",
+            "value": "第一人称 + 第三人称混合"
+          },
+          {
+            "label": "多视角（不设固定人称）",
+            "value": "多视角（不设固定人称）"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "tone",
+        "label": "整体基调",
+        "component": "select",
+        "options": [
+          {
+            "label": "紧张刺激（快节奏、高冲突、悬念驱动）",
+            "value": "紧张刺激（快节奏、高冲突、悬念驱动）"
+          },
+          {
+            "label": "温情治愈（慢节奏、情感向、暖心）",
+            "value": "温情治愈（慢节奏、情感向、暖心）"
+          },
+          {
+            "label": "轻松幽默（喜剧感、轻松愉快）",
+            "value": "轻松幽默（喜剧感、轻松愉快）"
+          },
+          {
+            "label": "沉重深刻（探讨人性/社会、偏文学性）",
+            "value": "沉重深刻（探讨人性/社会、偏文学性）"
+          },
+          {
+            "label": "热血燃向（升级打脸、爽感优先）",
+            "value": "热血燃向（升级打脸、爽感优先）"
+          },
+          {
+            "label": "暗黑压抑（残酷、反乌托邦）",
+            "value": "暗黑压抑（残酷、反乌托邦）"
+          },
+          {
+            "label": "史诗宏大（多线、世界观铺陈）",
+            "value": "史诗宏大（多线、世界观铺陈）"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "coreConflict",
+        "label": "核心冲突",
+        "component": "select",
+        "options": [
+          {
+            "label": "生死存亡（生存危机、逃出生天）",
+            "value": "生死存亡（生存危机、逃出生天）"
+          },
+          {
+            "label": "查明真相（寻找答案、揭露秘密）",
+            "value": "查明真相（寻找答案、揭露秘密）"
+          },
+          {
+            "label": "爱情阻碍（追求真爱、克服阻碍）",
+            "value": "爱情阻碍（追求真爱、克服阻碍）"
+          },
+          {
+            "label": "复仇雪恨（复仇计划、伸张正义）",
+            "value": "复仇雪恨（复仇计划、伸张正义）"
+          },
+          {
+            "label": "权力争夺（竞争上位、资源争夺）",
+            "value": "权力争夺（竞争上位、资源争夺）"
+          },
+          {
+            "label": "成长突破（自我突破、实现价值）",
+            "value": "成长突破（自我突破、实现价值）"
+          },
+          {
+            "label": "守护保护（守护重要的人或事）",
+            "value": "守护保护（守护重要的人或事）"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "motivation",
+        "label": "主角驱动力",
+        "component": "select",
+        "options": [
+          {
+            "label": "复仇（为某人/某事而战）",
+            "value": "复仇（为某人/某事而战）"
+          },
+          {
+            "label": "爱情（为所爱之人）",
+            "value": "爱情（为所爱之人）"
+          },
+          {
+            "label": "责任/使命（不得不做）",
+            "value": "责任/使命（不得不做）"
+          },
+          {
+            "label": "好奇心/求知欲（想知道真相）",
+            "value": "好奇心/求知欲（想知道真相）"
+          },
+          {
+            "label": "生存（活下去）",
+            "value": "生存（活下去）"
+          },
+          {
+            "label": "野心（想要得到某样东西）",
+            "value": "野心（想要得到某样东西）"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "theme",
+        "label": "核心主题",
+        "component": "select",
+        "options": [
+          {
+            "label": "成长与蜕变",
+            "value": "成长与蜕变"
+          },
+          {
+            "label": "正义与复仇",
+            "value": "正义与复仇"
+          },
+          {
+            "label": "爱与牺牲",
+            "value": "爱与牺牲"
+          },
+          {
+            "label": "权力与欲望",
+            "value": "权力与欲望"
+          },
+          {
+            "label": "生存与希望",
+            "value": "生存与希望"
+          },
+          {
+            "label": "自由与束缚（对抗命运/体制/偏见）",
+            "value": "自由与束缚（对抗命运/体制/偏见）"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "targetAudience",
+        "label": "目标读者",
+        "component": "select",
+        "options": [
+          {
+            "label": "大众网文读者（爽感、代入感）",
+            "value": "大众网文读者（爽感、代入感）"
+          },
+          {
+            "label": "青少年读者（青春、成长向）",
+            "value": "青少年读者（青春、成长向）"
+          },
+          {
+            "label": "成熟读者（深度、思想性）",
+            "value": "成熟读者（深度、思想性）"
+          },
+          {
+            "label": "泛娱乐休闲读者",
+            "value": "泛娱乐休闲读者"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "styleReference",
+        "label": "风格参考",
+        "component": "select",
+        "options": [
+          {
+            "label": "暂不模仿特定作者",
+            "value": "暂不模仿特定作者"
+          },
+          {
+            "label": "推理：偏社会派写实",
+            "value": "推理：偏社会派写实"
+          },
+          {
+            "label": "玄幻：偏升级流节奏",
+            "value": "玄幻：偏升级流节奏"
+          },
+          {
+            "label": "言情：偏细腻心理描写",
+            "value": "言情：偏细腻心理描写"
+          },
+          {
+            "label": "科幻：偏硬设定与世界观",
+            "value": "科幻：偏硬设定与世界观"
+          },
+          {
+            "label": "武侠：偏金庸式群像",
+            "value": "武侠：偏金庸式群像"
+          },
+          {
+            "label": "悬疑：偏东野圭吾式反转",
+            "value": "悬疑：偏东野圭吾式反转"
+          }
+        ],
+        "allowCreate": true,
+        "multiple": false
+      },
+      {
+        "key": "chapterCountPlan",
+        "label": "规模设想",
+        "component": "select",
+        "options": [
+          {
+            "label": "超短篇",
+            "options": [
+              {
+                "label": "1 万字（约 3 章）",
+                "value": "1 万字（约 3 章）"
+              },
+              {
+                "label": "3 万字（约 10 章）",
+                "value": "3 万字（约 10 章）"
+              },
+              {
+                "label": "5 万字（约 17 章）",
+                "value": "5 万字（约 17 章）"
+              }
+            ]
+          },
+          {
+            "label": "短篇",
+            "options": [
+              {
+                "label": "8 万字（约 27 章）",
+                "value": "8 万字（约 27 章）"
+              },
+              {
+                "label": "10 万字（约 33 章）",
+                "value": "10 万字（约 33 章）"
+              },
+              {
+                "label": "15 万字（约 50 章）",
+                "value": "15 万字（约 50 章）"
+              }
+            ]
+          },
+          {
+            "label": "中篇",
+            "options": [
+              {
+                "label": "20 万字（约 67 章）",
+                "value": "20 万字（约 67 章）"
+              },
+              {
+                "label": "30 万字（约 100 章）",
+                "value": "30 万字（约 100 章）"
+              },
+              {
+                "label": "40 万字（约 133 章）",
+                "value": "40 万字（约 133 章）"
+              },
+              {
+                "label": "50 万字（约 167 章）",
+                "value": "50 万字（约 167 章）"
+              }
+            ]
+          },
+          {
+            "label": "中长篇",
+            "options": [
+              {
+                "label": "60 万字（约 200 章）",
+                "value": "60 万字（约 200 章）"
+              },
+              {
+                "label": "80 万字（约 267 章）",
+                "value": "80 万字（约 267 章）"
+              },
+              {
+                "label": "100 万字（约 333 章）",
+                "value": "100 万字（约 333 章）"
+              }
+            ]
+          },
+          {
+            "label": "长篇",
+            "options": [
+              {
+                "label": "120 万字（约 400 章）",
+                "value": "120 万字（约 400 章）"
+              },
+              {
+                "label": "150 万字（约 500 章）",
+                "value": "150 万字（约 500 章）"
+              },
+              {
+                "label": "200 万字（约 667 章）",
+                "value": "200 万字（约 667 章）"
+              }
+            ]
+          },
+          {
+            "label": "超长篇",
+            "options": [
+              {
+                "label": "250 万字（约 833 章）",
+                "value": "250 万字（约 833 章）"
+              },
+              {
+                "label": "300 万字（约 1000 章）",
+                "value": "300 万字（约 1000 章）"
+              }
+            ]
+          }
+        ],
+        "allowCreate": true
+      },
+      {
+        "key": "chapterWordTarget",
+        "label": "单章目标字数",
+        "component": "select",
+        "options": [
+          {
+            "label": "2000 字",
+            "value": "2000"
+          },
+          {
+            "label": "2500 字",
+            "value": "2500"
+          },
+          {
+            "label": "3000 字",
+            "value": "3000"
+          },
+          {
+            "label": "3500 字",
+            "value": "3500"
+          },
+          {
+            "label": "4000 字",
+            "value": "4000"
+          },
+          {
+            "label": "5000 字",
+            "value": "5000"
+          }
+        ],
+        "multiple": false
+      },
+      {
+        "key": "specialRequirements",
+        "label": "特殊要求",
+        "component": "textarea",
+        "placeholder": "贴合「悬疑」题材的审稿尺度、禁忌题材、必须出现/必须避免的情节与元素等",
+        "rows": 4
+      }
+    ]
+  },
+  "role": {
+    "detailFields": [
+      {
+        "key": "name",
+        "label": "姓名",
+        "component": "input",
+        "section": "基础信息"
+      },
+      {
+        "key": "gender",
+        "label": "性别",
+        "component": "input",
+        "section": "基础信息"
+      },
+      {
+        "key": "ageStage",
+        "label": "年龄段",
+        "component": "input",
+        "section": "基础信息",
+        "placeholder": "如：少年、青年、中年"
+      },
+      {
+        "key": "species",
+        "label": "身份伪装标签",
+        "component": "input",
+        "section": "基础信息",
+        "placeholder": "如：公开身份 vs 真实身份（可空）"
+      },
+      {
+        "key": "occupation",
+        "label": "职业 / 社会身份",
+        "component": "input",
+        "section": "基础信息",
+        "placeholder": "如：刑警、记者、法医"
+      },
+      {
+        "key": "socialClass",
+        "label": "社会阶层",
+        "component": "input",
+        "section": "基础信息"
+      },
+      {
+        "key": "aliases",
+        "label": "别名 / 称号",
+        "component": "tagInput",
+        "allowCreate": true,
+        "section": "基础信息"
+      },
+      {
+        "key": "isProtagonist",
+        "label": "是否主角",
+        "component": "switch",
+        "section": "叙事定位"
+      },
+      {
+        "key": "roleType",
+        "label": "角色定位",
+        "component": "select",
+        "options": [
+          {
+            "label": "主角",
+            "value": "主角"
+          },
+          {
+            "label": "核心配角",
+            "value": "核心配角"
+          },
+          {
+            "label": "反派",
+            "value": "反派"
+          },
+          {
+            "label": "反派人马",
+            "value": "反派人马"
+          },
+          {
+            "label": "龙套",
+            "value": "龙套"
+          },
+          {
+            "label": "线索人物",
+            "value": "线索人物"
+          },
+          {
+            "label": "导师型",
+            "value": "导师型"
+          },
+          {
+            "label": "情感支线",
+            "value": "情感支线"
+          },
+          {
+            "label": "群像角色",
+            "value": "群像角色"
+          }
+        ],
+        "allowCreate": true,
+        "section": "叙事定位"
+      },
+      {
+        "key": "screenWeight",
+        "label": "戏份权重",
+        "component": "select",
+        "options": [
+          {
+            "label": "高",
+            "value": "高"
+          },
+          {
+            "label": "中",
+            "value": "中"
+          },
+          {
+            "label": "低",
+            "value": "低"
+          }
+        ],
+        "allowCreate": true,
+        "section": "叙事定位"
+      },
+      {
+        "key": "faction",
+        "label": "立场 / 阵营",
+        "component": "input",
+        "section": "叙事定位",
+        "placeholder": "如：警方、嫌疑人一方、旁观者"
+      },
+      {
+        "key": "organization",
+        "label": "所属机构 / 团体",
+        "component": "input",
+        "section": "叙事定位",
+        "placeholder": "如：刑侦支队、报社、社团"
+      },
+      {
+        "key": "debutChapter",
+        "label": "首次出场章节",
+        "component": "input",
+        "section": "叙事定位"
+      },
+      {
+        "key": "activePeriod",
+        "label": "活跃阶段",
+        "component": "input",
+        "section": "叙事定位"
+      },
+      {
+        "key": "longTermGoal",
+        "label": "长远目标（一句话）",
+        "component": "textarea",
+        "rows": 2,
+        "section": "驱动设定"
+      },
+      {
+        "key": "shortTermGoal",
+        "label": "阶段性目标",
+        "component": "textarea",
+        "rows": 2,
+        "section": "驱动设定"
+      },
+      {
+        "key": "personalityTags",
+        "label": "性格标签",
+        "component": "tagInput",
+        "allowCreate": true,
+        "section": "驱动设定"
+      },
+      {
+        "key": "skills",
+        "label": "调查能力 / 情报资源",
+        "component": "textarea",
+        "rows": 2,
+        "section": "驱动设定",
+        "placeholder": "推理、审讯、线人网络"
+      },
+      {
+        "key": "combatRole",
+        "label": "案件中的定位",
+        "component": "input",
+        "section": "驱动设定",
+        "placeholder": "如：主侦、目击者、真凶、干扰项"
+      },
+      {
+        "key": "weaknesses",
+        "label": "缺陷 / 掣肘 / 成本",
+        "component": "textarea",
+        "rows": 2,
+        "section": "驱动设定"
+      },
+      {
+        "key": "decisionStyle",
+        "label": "决策风格",
+        "component": "select",
+        "options": [
+          {
+            "label": "理性主导",
+            "value": "理性主导"
+          },
+          {
+            "label": "直觉主导",
+            "value": "直觉主导"
+          },
+          {
+            "label": "情感主导",
+            "value": "情感主导"
+          },
+          {
+            "label": "利益主导",
+            "value": "利益主导"
+          },
+          {
+            "label": "混合",
+            "value": "混合"
+          }
+        ],
+        "allowCreate": true,
+        "section": "驱动设定"
+      },
+      {
+        "key": "plotFunctions",
+        "label": "剧情作用（可多选自定义）",
+        "component": "tagInput",
+        "allowCreate": true,
+        "section": "剧情功能"
+      },
+      {
+        "key": "distinctiveMarks",
+        "label": "辨识特征",
+        "component": "textarea",
+        "rows": 2,
+        "section": "剧情功能"
+      },
+      {
+        "key": "arcInitial",
+        "label": "弧线起点人设",
+        "component": "textarea",
+        "rows": 2,
+        "section": "剧情功能"
+      },
+      {
+        "key": "arcTurning",
+        "label": "关键转折",
+        "component": "textarea",
+        "rows": 2,
+        "section": "剧情功能"
+      },
+      {
+        "key": "arcFinal",
+        "label": "弧线落点人设",
+        "component": "textarea",
+        "rows": 2,
+        "section": "剧情功能"
+      },
+      {
+        "key": "memoryAnchors",
+        "label": "记忆锚点（必须记住的人设事实）",
+        "component": "textarea",
+        "rows": 2,
+        "section": "AI 控制"
+      },
+      {
+        "key": "oocBoundaries",
+        "label": "不可越界（避免 OOC）",
+        "component": "textarea",
+        "rows": 2,
+        "section": "AI 控制"
+      },
+      {
+        "key": "descriptionKeywords",
+        "label": "文风关键词",
+        "component": "tagInput",
+        "allowCreate": true,
+        "section": "AI 控制"
+      },
+      {
+        "key": "foreshadowingTags",
+        "label": "伏笔标签",
+        "component": "tagInput",
+        "allowCreate": true,
+        "section": "AI 控制"
+      }
+    ],
+    "relation": {
+      "extraFields": [
+        {
+          "key": "factionStance",
+          "label": "阵营立场倾向",
+          "component": "input",
+          "placeholder": "如：中立、敌对、同盟"
+        }
+      ]
+    },
+    "timeline": {
+      "extraFields": [
+        {
+          "key": "content",
+          "label": "事件内容",
+          "component": "textarea",
+          "rows": 6,
+          "placeholder": "该时间点人物的变化、参与的事件、关键转折"
+        }
+      ]
+    }
+  },
+  "world": {
+    "defaultDetailFields": [
+      {
+        "key": "geography",
+        "label": "地理与环境",
+        "component": "textarea",
+        "placeholder": "案发现场、管辖区、隐蔽路径、监控盲区……",
+        "rows": 4
+      },
+      {
+        "key": "culture",
+        "label": "文化与生活",
+        "component": "textarea",
+        "placeholder": "当地人情、执法风气、禁忌话题……",
+        "rows": 4
+      },
+      {
+        "key": "history",
+        "label": "历史与冲突",
+        "component": "textarea",
+        "placeholder": "旧案、未破悬案、关键人物过往……",
+        "rows": 4
+      },
+      {
+        "key": "factions",
+        "label": "敌对与友好势力",
+        "component": "textarea",
+        "placeholder": "警方、媒体、嫌疑人家族、地下组织……",
+        "rows": 4
+      }
+    ]
+  },
+  "timeline": {
+    "extraFields": [
+      {
+        "key": "content",
+        "label": "事件内容",
+        "component": "textarea",
+        "rows": 6,
+        "placeholder": "写明起因、冲突、参与者、叙事功能与伏笔位置等"
+      }
+    ]
+  },
+  "outline": {
+    "volumeFields": [
+      {
+        "key": "theme",
+        "label": "核心主题",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "本卷案件/谜题主题"
+      },
+      {
+        "key": "conflict",
+        "label": "核心冲突",
+        "component": "textarea",
+        "rows": 4,
+        "placeholder": "真相反压、误导与人物信任崩塌"
+      },
+      {
+        "key": "majorEvents",
+        "label": "重大事件",
+        "component": "textarea",
+        "rows": 5,
+        "placeholder": "关键证物出现、反转、结案节点"
+      }
+    ],
+    "chapterSegmentFields": [
+      {
+        "key": "name",
+        "label": "本章标题",
+        "component": "input",
+        "required": true,
+        "placeholder": "如：灭门夜"
+      },
+      {
+        "key": "theme",
+        "label": "核心主题",
+        "component": "textarea",
+        "rows": 2,
+        "placeholder": "本章要写的核心主题"
+      },
+      {
+        "key": "conflict",
+        "label": "冲突",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "本章的主要冲突与对手压力"
+      },
+      {
+        "key": "majorEvents",
+        "label": "重大事件",
+        "component": "textarea",
+        "rows": 4,
+        "placeholder": "本章必须落地的关键情节/转折"
+      }
+    ]
+  },
+  "item": {
+    "detailFields": [
+      {
+        "key": "type",
+        "label": "类型",
+        "component": "select",
+        "options": [
+          {
+            "label": "证物",
+            "value": "evidence"
+          },
+          {
+            "label": "凶器",
+            "value": "weapon"
+          },
+          {
+            "label": "文件",
+            "value": "document"
+          },
+          {
+            "label": "线索物",
+            "value": "clue"
+          },
+          {
+            "label": "其他",
+            "value": "other"
+          }
+        ],
+        "placeholder": "选择物品类型"
+      },
+      {
+        "key": "grade",
+        "label": "关键程度",
+        "component": "input",
+        "placeholder": "如：核心、辅助、干扰项"
+      },
+      {
+        "key": "origin",
+        "label": "发现/来源",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "发现地点、持有人、流转链"
+      },
+      {
+        "key": "effect",
+        "label": "证明/暗示",
+        "component": "textarea",
+        "rows": 4,
+        "placeholder": "能证明什么、误导什么"
+      },
+      {
+        "key": "appearance",
+        "label": "外观与痕迹",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "外形、指纹/血迹等痕迹"
+      }
+    ],
+    "timeline": {
+      "extraFields": [
+        {
+          "key": "content",
+          "label": "事件内容",
+          "component": "textarea",
+          "rows": 6,
+          "placeholder": "该时间点物品的状态变化、归属流转、关键事件"
+        }
+      ]
+    }
+  },
+  "level": {
+    "levelFields": [
+      {
+        "key": "name",
+        "label": "职级 / 代号层级",
+        "component": "input",
+        "placeholder": "如：探员、队长、幕后操盘"
+      },
+      {
+        "key": "subLevels",
+        "label": "细分层级（可多段）",
+        "component": "tagInput",
+        "allowCreate": true,
+        "placeholder": "如：外围、核心、终局"
+      },
+      {
+        "key": "promotionCondition",
+        "label": "晋级条件",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "破案、黑料把柄、组织考验"
+      },
+      {
+        "key": "abilities",
+        "label": "权限 / 情报范围",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "档案调阅、线人、行动许可"
+      },
+      {
+        "key": "lifespan",
+        "label": "暴露风险备注",
+        "component": "input",
+        "placeholder": "身份可维持多久；可空"
+      }
+    ]
+  },
+  "creature": {
+    "detailFields": [
+      {
+        "key": "habitat",
+        "label": "栖息/分布",
+        "component": "input",
+        "placeholder": "如：北荒雪原、东海深处"
+      },
+      {
+        "key": "habit",
+        "label": "习性",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "昼伏夜出、领地意识等"
+      },
+      {
+        "key": "ability",
+        "label": "能力/特性",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "天赋神通、毒性、通灵等"
+      },
+      {
+        "key": "appearance",
+        "label": "外形",
+        "component": "textarea",
+        "rows": 3,
+        "placeholder": "体型、毛色、辨识特征"
+      },
+      {
+        "key": "dangerLevel",
+        "label": "危险等级",
+        "component": "input",
+        "placeholder": "如：低危、凶兽、绝灭级"
+      },
+      {
+        "key": "origin",
+        "label": "来历",
+        "component": "textarea",
+        "rows": 2,
+        "placeholder": "血脉、驯养、机缘等"
+      }
+    ],
+    "timeline": {
+      "extraFields": []
+    }
+  }
+}

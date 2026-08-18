@@ -1,0 +1,14 @@
+{
+  "extends": "./tsconfig.json",
+  "include": [
+    "src/client/**/*.ts",
+    "src/client/**/*.tsx",
+    "src/novel/domains.ts",
+    "src/novel/contract.ts",
+    "src/novel/template-fields.ts",
+    "src/novel/noveel-shapes.ts",
+    "src/novel/normalize-entity.ts",
+    "src/novel/timeline-labels.ts",
+    "src/novel/outline-labels.ts"
+  ]
+}
