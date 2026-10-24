@@ -8,6 +8,10 @@ importers:
 
   .:
     dependencies:
+      '@electric-sql/pglite':
+        specifier: ^0.4.5
+        version: 0.4.6
+    devDependencies:
       '@deepseek-ai/cordis':
         specifier: 4.0.5
         version: 4.0.5(@deepseek-ai/cordis-plugin-include@1.0.6)(@deepseek-ai/cordis-plugin-loader@1.0.2)
@@ -53,19 +57,15 @@ importers:
       '@deepseek-ai/dsh-util-values':
         specifier: 0.2.1-rc.3
         version: 0.2.1-rc.3(@deepseek-ai/cordis@4.0.5)
-      '@electric-sql/pglite':
-        specifier: ^0.4.5
-        version: 0.4.6
-      react:
-        specifier: 18.3.1
-        version: 18.3.1
-    devDependencies:
       '@types/node':
         specifier: ^22.20.0
         version: 22.20.1
       '@types/react':
         specifier: ^18
         version: 18.3.31
+      react:
+        specifier: 18.3.1
+        version: 18.3.1
       tsdown:
         specifier: 0.22.2
         version: 0.22.2(typescript@6.0.3)

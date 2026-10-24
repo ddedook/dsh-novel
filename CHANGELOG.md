@@ -1,5 +1,9 @@
 # Changelog
 
+## 0.1.3 — 2026-10-24
+
+- 修复工具执行崩溃 `Cannot read properties of undefined (reading 'prepare')`：宿主包改为 `peerDependencies`，避免 profile 再装一份 `dsh-tools` 导致 `TOOL_RUNTIME_SCHEDULER` Symbol 不一致。
+
 ## 0.1.2 — 2026-10-24
 
 - 支持 DeepSeek Harness 0.2.1-rc.3（cordis 4.0.5）：去掉已停更的 `dsh-client-runtime`，客户端改用 cordis `Context` + slots。
