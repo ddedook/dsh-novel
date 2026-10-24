@@ -1,5 +1,11 @@
 # Changelog
 
+## 0.1.2 — 2026-10-24
+
+- 支持 DeepSeek Harness 0.2.1-rc.3（cordis 4.0.5）：去掉已停更的 `dsh-client-runtime`，客户端改用 cordis `Context` + slots。
+- Host：`JsonValue` 改从 `dsh-util-values`；工具 cwd 读 `agent.session.header.cwd`。
+- 客户端：适配 `ConvViewProps` / 图标 Medium 命名，以及 `MarkdownText` 的 `labels`。
+
 ## 0.1.1 — 2026-08-18
 
 - 大纲与正文身份只收序号 + 短名，界面显示「第N卷/章 + 名称」；写入时剥掉 name 里已有的「第1章 / 第一章」等前缀，避免标题重复。

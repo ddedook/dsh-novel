@@ -1,8 +1,8 @@
 import {
-  IconChevronRightOutline14,
-  IconFolderClose16,
-  IconFolderOpenOutline16,
-  IconListPenOutline16,
+  IconChevronRightOutlineMedium,
+  IconFolderCloseMedium,
+  IconFolderOpenOutlineMedium,
+  IconListPenOutlineMedium,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 import { useEffect, useMemo, useState } from 'react'
 import { asRecord, parentIdOf, type EntityItem } from '../entity-client.ts'
@@ -125,14 +125,14 @@ export function EntitySidebar({
                     toggle(row.id)
                   }}
                 >
-                  <IconChevronRightOutline14 />
+                  <IconChevronRightOutlineMedium size={14} />
                 </span>
               ) : <span className="dshNovelViewChevron" />}
               {files ? (
                 <span className="dshNovelViewRowIcon">
                   {folder
-                    ? (open ? <IconFolderOpenOutline16 /> : <IconFolderClose16 />)
-                    : <IconListPenOutline16 />}
+                    ? (open ? <IconFolderOpenOutlineMedium size={16} /> : <IconFolderCloseMedium size={16} />)
+                    : <IconListPenOutlineMedium size={16} />}
                 </span>
               ) : null}
               {nameOf(row)}

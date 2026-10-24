@@ -1,13 +1,13 @@
 import type { ReactNode } from 'react'
 import {
-  IconArchiveOutline20,
-  IconChecklistOutline14,
-  IconGlobeOutline14,
-  IconGoalOutline16,
-  IconListPenOutline16,
-  IconQueueOutline14,
-  IconSkillOutline16,
-  IconUserOutline16,
+  IconArchiveOutlineMedium,
+  IconChecklistOutlineMedium,
+  IconGlobeOutlineMedium,
+  IconGoalOutlineMedium,
+  IconListPenOutlineMedium,
+  IconQueueOutlineMedium,
+  IconSkillOutlineMedium,
+  IconUserOutlineMedium,
 } from '@deepseek-ai/dsh-client-ui-primitives'
 import type { ContentSection } from '../novel/domains.ts'
 
@@ -40,14 +40,14 @@ function BookIcon() {
 export function SectionIcon({ section }: { section: ContentSection }): ReactNode {
   switch (section) {
     case 'overview': return <BookIcon />
-    case 'world': return <IconGlobeOutline14 />
-    case 'role': return <IconUserOutline16 />
+    case 'world': return <IconGlobeOutlineMedium size={16} />
+    case 'role': return <IconUserOutlineMedium size={16} />
     case 'creature': return <CreatureIcon />
-    case 'item': return <IconArchiveOutline20 size={16} />
-    case 'level': return <IconGoalOutline16 />
-    case 'timeline': return <IconQueueOutline14 />
-    case 'outline': return <IconChecklistOutline14 />
-    case 'chapter': return <IconListPenOutline16 />
-    case 'skill': return <IconSkillOutline16 />
+    case 'item': return <IconArchiveOutlineMedium size={16} />
+    case 'level': return <IconGoalOutlineMedium size={16} />
+    case 'timeline': return <IconQueueOutlineMedium size={16} />
+    case 'outline': return <IconChecklistOutlineMedium size={16} />
+    case 'chapter': return <IconListPenOutlineMedium size={16} />
+    case 'skill': return <IconSkillOutlineMedium size={16} />
   }
 }

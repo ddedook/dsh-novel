@@ -1,5 +1,6 @@
 import { useCallback, useEffect, useState } from 'react'
 import type { ConvViewProps } from '@deepseek-ai/dsh-client-ui-conversation/client'
+import type {} from '@deepseek-ai/dsh-client-ui-session/client'
 import { Tooltip } from '@deepseek-ai/dsh-client-ui-primitives'
 import { CONTENT_SECTIONS, DOMAIN_LABELS, type ContentSection } from '../novel/domains.ts'
 import { novelApi } from './novel-api.ts'
@@ -19,10 +20,7 @@ const sessionMemory = new Map<string, ContentSection>()
 
 /** Novel workspace occupying the conversation.view tab. Does not switch the active view. */
 export function NovelWorkspaceView({ sessionId, useSessions }: ConvViewProps) {
-  const workspacePath = useSessions((state) => {
-    const session = state.byId[sessionId] as { cwd?: string, header?: { cwd?: string } } | undefined
-    return session?.cwd ?? session?.header?.cwd
-  })
+  const workspacePath = useSessions(state => state.byId[sessionId]?.cwd)
 
   const [section, setSection] = useState<ContentSection>(sessionMemory.get(sessionId) ?? 'overview')
   const [isNovel, setIsNovel] = useState(false)

@@ -1,5 +1,5 @@
 import type { InputHTMLAttributes, ReactNode, SelectHTMLAttributes, TextareaHTMLAttributes } from 'react'
-import { Input, IconSearchOutline16 } from '@deepseek-ai/dsh-client-ui-primitives'
+import { Input, IconSearchOutlineMedium } from '@deepseek-ai/dsh-client-ui-primitives'
 
 export function Field({ label, htmlFor, children }: { label: string, htmlFor?: string, children: React.ReactNode }) {
   return (
@@ -17,7 +17,7 @@ export function TextInput({ className, ...rest }: InputHTMLAttributes<HTMLInputE
 export function SearchField({ className: _className, ...rest }: InputHTMLAttributes<HTMLInputElement>) {
   return (
     <div className="dshNovelViewSearch">
-      <Input icon={<IconSearchOutline16 />} placeholder="搜索…" {...rest} />
+      <Input icon={<IconSearchOutlineMedium size={16} />} placeholder="搜索…" {...rest} />
     </div>
   )
 }

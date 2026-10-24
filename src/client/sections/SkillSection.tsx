@@ -1,5 +1,10 @@
 import { useCallback, useEffect, useMemo, useState } from 'react'
-import { MarkdownText } from '@deepseek-ai/dsh-client-ui-primitives'
+import { MarkdownText, type MarkdownLabels } from '@deepseek-ai/dsh-client-ui-primitives'
+
+const MARKDOWN_LABELS: MarkdownLabels = {
+  code: { copyLabel: '复制', copiedLabel: '已复制' },
+  footnotes: '脚注',
+}
 import { novelApi } from '../novel-api.ts'
 import { EntitySidebar } from '../ui/EntitySidebar.tsx'
 import { emptyHint, useLiveReload } from '../ui/live-reload.ts'
@@ -51,7 +56,7 @@ export function SkillSection({ path }: { path: string }) {
             <article className="dshNovelDoc">
               <p className="dshNovelCrumb">{crumbOf(selected)}</p>
               <div className="dshNovelMarkdown">
-                <MarkdownText text={selected.body} />
+                <MarkdownText text={selected.body} labels={MARKDOWN_LABELS} />
               </div>
             </article>
           </div>

@@ -21,7 +21,7 @@ import {
   upsertSkill,
 } from './store.ts'
 
-import type { JsonValue } from '@deepseek-ai/dsh-session'
+import type { JsonValue } from '@deepseek-ai/dsh-util-values'
 
 function jsonText(value: unknown): string {
   return JSON.stringify(value, null, 2)
@@ -33,9 +33,9 @@ function asJson(value: unknown): JsonValue {
 
 function workspaceFrom(
   args: { workspace_path?: string },
-  exec: { agent?: { cwd?: string, session?: { header?: { cwd?: string } } } },
+  exec: { agent?: { session?: { header?: { cwd?: string } } } },
 ): string {
-  const path = args.workspace_path ?? exec.agent?.cwd ?? exec.agent?.session?.header?.cwd
+  const path = args.workspace_path ?? exec.agent?.session?.header?.cwd
   if (typeof path !== 'string' || path.length === 0) {
     throw new Error('workspace_path is required (or the session must have a cwd)')
   }
